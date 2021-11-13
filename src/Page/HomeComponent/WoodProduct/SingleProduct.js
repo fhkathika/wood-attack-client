@@ -25,7 +25,7 @@ const SingleProduct = ({product}) => {
        {description}
       </Typography>
       <Link to={`/orderDetailPage/${_id}`}>
-       <Button variant="contained">Order Now</Button>
+       <Button style={{backgroundColor:'#251C14'}} variant="contained">Order Now</Button>
       </Link>
      
        </Paper>

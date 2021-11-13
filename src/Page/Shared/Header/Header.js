@@ -15,7 +15,7 @@ const Header = () => {
     return (
  
               <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar style={{backgroundColor:'#251C14'}} position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -27,21 +27,21 @@ const Header = () => {
             {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+         Wood Art
           </Typography>
-          <Link to='/'>
+          <Link style={{textDecoration:'none',color:'wheat'}} to='/'>
           <Button color="inherit">Home</Button>
           </Link>
-          <Link to='/explore'>
+          <Link style={{textDecoration:'none',color:'wheat'}}to='/explore'>
           <Button color="inherit">Explore Items</Button>
           </Link>
-          <Link to='/dashBoard'>
+          <Link style={{textDecoration:'none',color:'wheat'}}to='/dashBoard'>
           <Button color="inherit">DashBoard</Button>
           </Link>
           {
             user?.email?
             <Button onClick={LogOut} color="inherit">Log Out</Button> :
-            <Link to='/login'>
+            <Link style={{textDecoration:'none',color:'wheat'}} to='/login'>
             <Button color="inherit">Login</Button>
             </Link>
           }

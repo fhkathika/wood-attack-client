@@ -34,59 +34,59 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 export default function ManageProducts() {
-    const [products,setProducts]=React.useState([])
-    const handleDeleteProduct=id=>{
-      const proceed=window.confirm('are you sure? you want to delete?')
-      if(proceed){
-        fetch(`http://localhost:5000/productDelete/${id}`,{
-          method: 'DELETE'
+  const [products, setProducts] = React.useState([])
+  const handleDeleteProduct = id => {
+    const proceed = window.confirm('are you sure? you want to delete?')
+    if (proceed) {
+      fetch(`https://serene-bayou-12088.herokuapp.com/productDelete/${id}`, {
+        method: 'DELETE'
       })
-      .then(res =>res.json())
-      .then(data=>{
-          if(data.deletedCount>0){
-              alert('delete Successfully')
-              const remainingUser=products.filter(product=>product._id !==id)
-              setProducts(remainingUser)
+        .then(res => res.json())
+        .then(data => {
+          if (data.deletedCount > 0) {
+            alert('delete Successfully')
+            const remainingUser = products.filter(product => product._id !== id)
+            setProducts(remainingUser)
           }
-      })
-      }
-      
-       
-    }
-    React.useEffect(()=>{
-        fetch('http://localhost:5000/showItems')
-        .then(res =>res.json())
-        .then(data =>{
-            setProducts(data)
-            console.log(data)
         })
-    },[products._id])
+    }
+
+
+  }
+  React.useEffect(() => {
+    fetch('https://serene-bayou-12088.herokuapp.com/showItems')
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data)
+        console.log(data)
+      })
+  }, [products._id])
   return (
-   <Container >
- <TableContainer  sx={{ minWidth: 'auto',margin:"5%" }}   component={Paper}>
-      <Table aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Product Name</StyledTableCell>
-            <StyledTableCell align="right">Price</StyledTableCell>
-            <StyledTableCell align="right">Action</StyledTableCell>
-            
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {products.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell>
-              <StyledTableCell align="right"><Button onClick={()=>handleDeleteProduct(row._id)}>Delete</Button></StyledTableCell>
-         
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-   </Container>
+    <Container >
+      <TableContainer sx={{ minWidth: 'auto', margin: "5%" }} component={Paper}>
+        <Table aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Product Name</StyledTableCell>
+              <StyledTableCell align="right">Price</StyledTableCell>
+              <StyledTableCell align="right">Action</StyledTableCell>
+
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {products.map((row) => (
+              <StyledTableRow key={row.name}>
+                <StyledTableCell component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.price}</StyledTableCell>
+                <StyledTableCell align="right"><Button onClick={() => handleDeleteProduct(row._id)}>Delete</Button></StyledTableCell>
+
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 }

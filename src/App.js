@@ -10,6 +10,7 @@ import Register from './Page/HomeComponent/Register/Register';
 import AuthProvider from './Page/Context/AuthProvider';
 import PrivateRoute from './Page/Route/PrivateRoute';
 import OrderDetailPage from './Page/OrderDetailPage/OrderDetailPage';
+import Footer from './Page/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
 <Register></Register>
 </Route>
       </Switch>
+      <Footer></Footer>
       </BrowserRouter>
      </AuthProvider>
     </div>
