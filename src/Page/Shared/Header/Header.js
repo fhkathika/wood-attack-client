@@ -15,7 +15,7 @@ const Header = () => {
     return (
  
               <Box sx={{ flexGrow: 1 }}>
-      <AppBar style={{backgroundColor:'#251C14'}} position="static">
+      <AppBar style={{backgroundColor:'#251C14'}} position="static" sx={{ justifyContent: 'space-evenly' }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -33,7 +33,7 @@ const Header = () => {
           <Button color="inherit">Home</Button>
           </Link>
           <Link style={{textDecoration:'none',color:'wheat'}}to='/explore'>
-          <Button color="inherit">Explore Items</Button>
+          <Button color="inherit">Explore</Button>
           </Link>
           <Link style={{textDecoration:'none',color:'wheat'}}to='/dashBoard'>
           <Button color="inherit">DashBoard</Button>
@@ -46,9 +46,9 @@ const Header = () => {
             </Link>
           }
          
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
            {user?.displayName}
-          </Typography>
+          </Typography> */}
          
         </Toolbar>
       </AppBar>
