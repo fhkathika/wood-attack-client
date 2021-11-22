@@ -6,14 +6,14 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { Button, Container } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 const Header = () => {
    const {user,LogOut}=useAuth()
   //  console.log('userdetail.....',user)
     return (
- 
+
               <Box sx={{ flexGrow: 1 }}>
       <AppBar style={{backgroundColor:'#251C14'}} position="static" sx={{ justifyContent: 'space-evenly' }}>
         <Toolbar>
