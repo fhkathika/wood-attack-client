@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { Button, Container } from '@mui/material';
-
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 const Header = () => {

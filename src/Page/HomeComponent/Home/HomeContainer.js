@@ -1,6 +1,7 @@
 import React from 'react';
 import About from '../../About/About';
 import Background from '../../Background/Background';
+import Blog from '../Blog/Blog';
 import ShowReview from '../Review/ShowReview';
 import ItemsForHomePage from './ItemsForHomePage';
 
@@ -16,9 +17,10 @@ const HomeContainer = () => {
         
     // }
     return (
-        <div>
+        <div  >
             <Background></Background>
            <ItemsForHomePage></ItemsForHomePage> 
+           <Blog></Blog>
            <About></About>
            <ShowReview></ShowReview>
         </div>

@@ -6,46 +6,46 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Facebook from '@mui/icons-material/Facebook';
-import { Container, Paper, Typography } from '@mui/material';
+import {Link} from 'react-router-dom'
+import { Container, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import './Footer.css'
 const Footer = () => {
     return (
-        <Box  sx={{padding:'20px', backgroundColor:'#251C14'}}>
-  <BottomNavigation
-   sx={{ backgroundColor:'#251C14'}}
-     showLabels
-   >
-
-<Typography style={{color:'#CFAF92',marginRight:'2%',marginLeft:'0'}} variant="h4"gutterBottom component="div" >
-       Wood Art
-      </Typography>
-    
-     
-     <BottomNavigationAction
-        style={{color:'#C8A382'}}
-        label="Favorites"
-        value="favorites"
-        icon={<FavoriteIcon style={{color:'#F1E8E0'}} />}
-      />
-      <BottomNavigationAction
-      style={{color:'#C8A382'}}
-        label="Instagram"
-        value="nearby"
-        icon={<InstagramIcon style={{color:'#F1E8E0'}} />}
-      />
-      <BottomNavigationAction
-         style={{color:'#C8A382'}} 
-         label="Twitter" value="folder" icon={<TwitterIcon style={{color:'#F1E8E0'}} />} />
-      <BottomNavigationAction 
-         style={{color:'#C8A382'}}
-      label="Facebook" value="folder" icon={<Facebook style={{color:'#F1E8E0'}}/>} />
-   
-      
-   </BottomNavigation>
-   <p style={{color:'#CFAF92'}} >In a forest of a hundred thousand trees, no two leaves are alike. And no two journeys along the same path are alike.</p>
-   <small style={{color:'#CFAF92'}}  >@copyright 2021</small>
-
-   </Box>
+      <footer>
+      <Box color='white' px={{xs:3,sm:10}} py={{xs:5,sm:10}} bgcolor='#251C14' left='0' bottom='0' right='0' >
+          <Container maxWidth="lg">
+<Grid container spacing={5} >
+<Grid item x={12} sm={4}>
+   <Box borderBottom={1}>Help</Box>
+   <Box ><Link className='link' href='/' >Contact</Link></Box>
+   <Box ><Link className='link' href='/' color='white'>Support</Link></Box>
+   <Box ><Link className='link' href='/' color='white'>Privacy policy</Link></Box>
+</Grid>
+<Grid item x={12} sm={4}>
+   <Box borderBottom={1}>Account</Box>
+   <Box  ><Link className='link'  href='/' >Login</Link></Box>
+   <Box ><Link className='link' href='/' color='white'>Register</Link></Box>
+   <Box ><Link className='link' href='/' color='white'>Messages</Link></Box>
+</Grid>
+<Grid item x={12} sm={4}>
+   <Box borderBottom={1}>Messages</Box>
+   <Box ><Link className='link' href='/' color='white'>History</Link></Box>
+   <Box ><Link className='link' href='/' color='white'>Support</Link></Box>
+   <Box ><Link className='link' href='/' color='white'>Privacy policy</Link></Box>
+</Grid>
+</Grid>
+<Box textAlign='center' pt={{xs:5,sm:10}} pb={{xs:5,sm:0}}>
+{<Facebook  style={{color:'#F1E8E0', margin:'10px'}}/>}
+{<TwitterIcon  style={{color:'#F1E8E0', margin:'10px'}}/>}
+{<InstagramIcon style={{color:'#F1E8E0', margin:'10px'}}/>}
+</Box>
+<Box textAlign='center' pt={{xs:5,sm:4}} pb={{xs:5,sm:0}}>
+Ecommerce Site @copyright {new Date().getFullYear()}
+</Box>
+          </Container>
+      </Box>
+      </footer>
 
   
     );
