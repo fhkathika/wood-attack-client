@@ -1,0 +1,14 @@
+.bg{
+    background-image: linear-gradient(180deg, #0000006E 60%, #251C14 100%),url(https://i.ibb.co/Mh515Lz/addprodut2.jpg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    background-position:center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+margin: 0;
+   
+}

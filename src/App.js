@@ -11,13 +11,14 @@ import AuthProvider from './Page/Context/AuthProvider';
 import PrivateRoute from './Page/Route/PrivateRoute';
 import OrderDetailPage from './Page/OrderDetailPage/OrderDetailPage';
 import Footer from './Page/Shared/Footer/Footer';
+import DashboardDemo from './Page/DashBoard/DashboardDemo';
 
 function App() {
   return (
     <div className="App">
      <AuthProvider>
      <BrowserRouter>
-      <Header></Header>
+      
       <Switch>
 <Route exact path='/'>
 <HomeContainer></HomeContainer>
@@ -27,6 +28,9 @@ function App() {
 </Route>
 <PrivateRoute  path='/dashBoard'>
 <Dashboard></Dashboard>
+</PrivateRoute>
+<PrivateRoute  path='/DashboardDemo'>
+<DashboardDemo></DashboardDemo>
 </PrivateRoute>
 <PrivateRoute  path='/orderDetailPage/:id'>
 <OrderDetailPage></OrderDetailPage>

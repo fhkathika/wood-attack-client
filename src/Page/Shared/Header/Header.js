@@ -8,35 +8,123 @@ import Typography from '@mui/material/Typography';
 import { Button, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+
+
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import Avatar from '@mui/material/Avatar';
+
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
 const Header = () => {
    const {user,LogOut}=useAuth()
   //  console.log('userdetail.....',user)
+  const pages = ['Products', 'Pricing', 'Blog'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
     return (
 
-              <Box sx={{ flexGrow: 1 }}>
-      <AppBar style={{backgroundColor:'#251C14'}} position="static" sx={{ justifyContent: 'space-evenly' }}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+      <>
+            
+    <AppBar style={{backgroundColor:'#251C14'}} position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            {/* <MenuIcon /> */}
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-         Wood Art
+            Woodcraft
           </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              <Link style={{textDecoration:'none',color:'wheat'}} to='/'>
+          <Button color="inherit">Home</Button>
+          </Link>
+          <Link style={{textDecoration:'none',color:'wheat'}}to='/explore'>
+          <Button color="inherit">Explore</Button>
+          </Link>
+          {/* <Link style={{textDecoration:'none',color:'wheat'}}to='/dashBoard'>
+          <Button color="inherit">DashBoard</Button>
+          </Link> */}
+          <Link style={{textDecoration:'none',color:'wheat'}}to='/dashboardDemo'>
+          <Button color="inherit">DashBoard</Button>
+          </Link>
+            </Menu>
+          </Box>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+          >
+            Woodcraft
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           <Link style={{textDecoration:'none',color:'wheat'}} to='/'>
           <Button color="inherit">Home</Button>
           </Link>
           <Link style={{textDecoration:'none',color:'wheat'}}to='/explore'>
           <Button color="inherit">Explore</Button>
           </Link>
-          <Link style={{textDecoration:'none',color:'wheat'}}to='/dashBoard'>
+          {/* <Link style={{textDecoration:'none',color:'wheat'}}to='/dashBoard'>
+          <Button color="inherit">DashBoard</Button>
+          </Link> */}
+          <Link style={{textDecoration:'none',color:'wheat'}}to='/dashboardDemo'>
           <Button color="inherit">DashBoard</Button>
           </Link>
+          </Box>
+
+          <Box sx={{ flexGrow: 0 }}>
           {
             user?.email?
             <Button onClick={LogOut} color="inherit">Log Out</Button> :
@@ -44,16 +132,33 @@ const Header = () => {
             <Button color="inherit">Login</Button>
             </Link>
           }
-         
-          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           {user?.displayName}
-          </Typography> */}
-         
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
         </Toolbar>
-      </AppBar>
-    </Box>
-
- 
+      </Container>
+    </AppBar>
+ </>
     );
 };
 

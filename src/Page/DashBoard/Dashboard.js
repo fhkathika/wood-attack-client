@@ -33,13 +33,9 @@ export default function ScrollableTabsButtonForce() {
   const history=useHistory()
    const bgUrl2='https://i.ibb.co/RNDdLKf/bg2.jpg'
    const bg={
-  
     background:`url(${bgUrl2})`,
     backgroundRepeat: 'no-repeat',
-
-   
-
-    
+  
 }
   return (
     <Box sx={{ width: '100%' }}>

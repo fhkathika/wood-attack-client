@@ -12,7 +12,7 @@ import { Box } from '@mui/system';
 import './Footer.css'
 const Footer = () => {
     return (
-      <footer>
+      <footer style={{position:'static'}}>
       <Box color='white' px={{xs:3,sm:10}} py={{xs:5,sm:10}} bgcolor='#251C14' left='0' bottom='0' right='0' >
           <Container maxWidth="lg">
 <Grid container spacing={5} >

@@ -1,7 +1,7 @@
 import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 
 import React, { useState } from 'react';
-
+import './AddProduct.css';
 const AddProduct = () => {
   const [product, setProduct] = useState({})
   console.log('product/.....', product)
@@ -34,12 +34,13 @@ const AddProduct = () => {
     e.preventDefault()
   }
   return (
-    <Container   >
+    <div>
+
       <Grid sx={{ margin: '10px' }} container spacing={2}>
         <Grid item xs={12} md={6}>
           <Paper elevation={3}>
 
-            <form style={addProductBg} onSubmit={handleAddProduct}>
+            <form onSubmit={handleAddProduct}>
               <Typography className="style" sx={{ padding: '10px', margin: "10px", color: '#795548' }} variant="h4" gutterBottom component="div">
                 Add New Product
               </Typography>
@@ -82,7 +83,8 @@ const AddProduct = () => {
         </Grid>
 
       </Grid>
-    </Container>
+
+    </div>
   );
 };
 

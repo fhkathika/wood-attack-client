@@ -2,11 +2,33 @@ import { Alert, Button, CircularProgress, Container, TextField } from '@mui/mate
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-
-const MakeAdmin = () => {
+import Modal from '@mui/material/Modal';
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+  };
+  
+const MakeAdmin=()=> {
     const [email, setEmail] = useState('')
     const [success, setSuccess] = useState(false)
     const { authError, isLoading } = useAuth()
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
     const handleEmail = e => {
         setEmail(e.target.value)
         console.log(e.target.value)
@@ -38,7 +60,10 @@ const MakeAdmin = () => {
     }
 
     return (
-        <Container >
+        <div>
+          
+   
+    <Container >
             {!isLoading &&
                 <>
                     <form style={{ margin: '10%' }} onSubmit={handleAdmin}>
@@ -64,8 +89,11 @@ const MakeAdmin = () => {
             }
 
         </Container>
+        </div>
+        
 
     );
-};
 
-export default MakeAdmin;
+
+}
+export default MakeAdmin

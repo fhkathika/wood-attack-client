@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    text-align: start;
+    padding-top: 10px;
+   
+      
+   }
+   ul li{
+       padding: 10px;
+      
+      
+   }
+   .link{
+       padding:5% 10% 5% 5%;
+       text-decoration: none;
+       color: orange;
+      
+   }
+   /* .link:hover{
+       color: palevioletred;
+   } */
+   .link:focus{
+       color: rgb(224, 27, 27);
+    background-color: pink;
+    border-radius: 5px;
+    width: 100%;
+    margin: auto;
+   }

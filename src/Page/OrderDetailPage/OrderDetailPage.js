@@ -3,6 +3,7 @@ import { margin } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../hooks/useAuth'
 import './OrderDetailPage.css'
 const OrderDetailPage = () => {
@@ -55,7 +56,10 @@ const OrderDetailPage = () => {
   return (
     <Container>
       <Paper elevation={3} style={{ width: 'auto' }}>
-        <form style={formBg} onSubmit={handleSubmit(onSubmit)}>
+        <form  onSubmit={handleSubmit(onSubmit)}>
+       
+  
+          
           <h1 className="style" sx={{ padding: '10px', margin: "10px", color: '#795548' }}>Order Detail</h1>
           <InputBase sx={{ width: "50%", margin: "10px", color: '#382A1E', border: '2px solid #382A1E', borderRadius: '5px' }}
             {...register("displayName")}
@@ -89,7 +93,14 @@ const OrderDetailPage = () => {
 
 
           <br />
+          <div style={{display:'flex',justifyContent:'center'}}>
           <Button style={{ backgroundColor: '#382A1E', width: '25%', margin: '2%' }} variant="contained" type="submit" >Confirm Order</Button>
+         
+          <Link style={{textDecoration:'none',marginTop:'30px'}}  to='/'>Back</Link> 
+          
+          
+          </div>
+          
         </form>
 
       </Paper>
